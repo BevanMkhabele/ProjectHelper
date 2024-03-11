@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Creator</title>
+    <style>
+        /* Add some basic styling for better appearance */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>List Creator</h2>
+
+<input type="text" id="listItem" placeholder="Enter an item">
+<button onclick="addItem()">Add to List</button>
+
+<ul id="userList">
+    <!-- The list will be dynamically populated here -->
+</ul>
+
+<script>
+    function addItem() {
+        // Get the input value
+        var newItem = document.getElementById("listItem").value;
+
+        // Check if the input is not empty
+        if (newItem.trim() !== "") {
+            // Create a new list item
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(newItem));
+
+            // Add the new item to the list
+            document.getElementById("userList").appendChild(li);
+
+            // Clear the input field for the next item
+            document.getElementById("listItem").value = "";
+        }
+    }
+</script>
+
+</body>
+</html>
